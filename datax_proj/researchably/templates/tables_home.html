@@ -1,0 +1,112 @@
+{% extends 'base.html'%}
+{% block title %}Researchably{% endblock %}
+{% block main_content %}
+<aside class="sidebar-left-collapse">
+    {% load static %}
+    <a href="https://researchably.com/">
+        <img border="0" src="{% static "images/researchably_big.png" %}" width="100" height="85">
+    </a>
+    <div class="sidebar-links">
+
+        <div class="link selected">
+
+            <a href=#>
+                <i class="fa fa-globe"></i>Source
+            </a>
+
+            <ul class="sub-links">
+                <form action="/researchably/output/" method="post">
+                    {% csrf_token %}
+                    <label>Enter PMID:</label>
+                    {{form.paper_index}}
+                    <br>
+                    <br>
+                    {% csrf_token %}
+                    {{form.ouput_choices}}
+
+                    <input type="checkbox" name="choice1" value="Bike">
+                    <i class="fa fa-file-text-o"></i> Title<br>
+
+                    <input type="checkbox" name="choice2" value="Car">
+                    <i class="fa fa-user"></i> Author<br>
+
+                    <input type="checkbox" name="choice3" value="Boat">
+                    <i class="fa fa-link"></i> Link<br>
+
+                    <input type="checkbox" name="choice4" value="Car">
+                    <i class="fa fa-pencil"></i> Article Type<br>
+
+                    <input type="checkbox" name="choice5" value="Car">
+                    <i class="fa fa-flask"></i> Study Design<br>
+
+                    <input type="checkbox" name="choice6" value="Car">
+                    <i class="fa fa-star"></i> Result Summarizations<br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </ul>
+        </div>
+        <!--
+                <div class="link">
+
+                    <a href=#>
+                        <i class="fa fa-table"></i>Tables
+                    </a>
+                    <ul class="sub-links">
+
+                        <form action="/display/time_query/" method="post">
+                             {% csrf_token %}
+                             Scoreboard(s):
+                             {{form.choose_features}}
+                             (YYYY,MM,DD,HH,MM,SS)
+                            <br>
+                             Start time:
+                             {{form.paper_index}}
+                             <br>
+                             End time:
+                             {{form.paper_index}}
+                            <input type="submit" style="display: none" />
+                        </form>
+
+                        <form action="/researchably/output/" method="post">
+                            {% csrf_token %}
+                            {{form.ouput_choices}}
+                            <input type="checkbox" name="vehicle1" value="Bike">Title<br>
+                            <input type="checkbox" name="vehicle2" value="Car">Author<br>
+                            <input type="checkbox" name="vehicle3" value="Boat">Link<br>
+                            <input type="checkbox" name="vehicle2" value="Car">Article Type<br>
+                            <input type="checkbox" name="vehicle2" value="Car">Study Design<br>
+                            <input type="checkbox" name="vehicle2" value="Car">Result Summarizations<br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </ul>
+
+
+                </div>
+        -->
+
+    </div>
+
+</aside>
+
+<div class="main-content">
+
+    <h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img class="logo" border="0" src="{% static "images/researchably.png" %}" >
+        <br>
+        Researchably: NLP for Pharma Industry
+    </h1>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</div>
+
+{% endblock %}
+</body>
+</html>

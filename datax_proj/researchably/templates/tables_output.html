@@ -1,0 +1,123 @@
+{% extends 'base.html'%}
+{% block title %}Researchably{% endblock %}
+{% block main_content %}
+<aside class="sidebar-left-collapse">
+    {% load static %}
+    <a href="https://researchably.com/">
+        <img border="0" src="{% static "images/researchably_big.png" %}" width="100" height="85">
+    </a>
+    <div class="sidebar-links">
+
+        <div class="link selected">
+
+            <a href=#>
+                <i class="fa fa-globe"></i>Source
+            </a>
+
+            <ul class="sub-links">
+                <form action="/researchably/output/" method="post">
+                    {% csrf_token %}
+                    <label>Enter PMID:</label>
+                    {{form.paper_index}}
+                    <br>
+                    <br>
+                    {% csrf_token %}
+                    {{form.ouput_choices}}
+
+                    <input type="checkbox" name="choice1" value="Bike">
+                    <i class="fa fa-file-text-o"></i> Title<br>
+
+                    <input type="checkbox" name="choice2" value="Car">
+                    <i class="fa fa-user"></i> Author<br>
+
+                    <input type="checkbox" name="choice3" value="Boat">
+                    <i class="fa fa-link"></i> Link<br>
+
+                    <input type="checkbox" name="choice4" value="Car">
+                    <i class="fa fa-pencil"></i> Article Type<br>
+
+                    <input type="checkbox" name="choice5" value="Car">
+                    <i class="fa fa-flask"></i> Study Design<br>
+
+                    <input type="checkbox" name="choice6" value="Car">
+                    <i class="fa fa-star"></i> Result Summarizations<br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </ul>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<div class="wrapper">
+  <div class="one">
+      <div class="grid_title">
+          <b>Title</b>
+      </div>
+
+      <div class="grid_contents_small1">
+          {{title}}
+      </div>
+
+  </div>
+
+  <div class="two">
+      <div class="grid_title">
+          <b>Authors</b>
+      </div>
+
+      <div class="grid_contents_small1">
+          {{authors}}
+      </div>
+
+  </div>
+
+  <div class="three">
+      <div class="grid_title">
+          <b>Link</b>
+      </div>
+
+      <div class="grid_contents_small1">
+          {{url}}
+      </div>
+  </div>
+
+  <div class="four">
+      <div class="grid_title">
+          <b>Article Type</b>
+      </div>
+
+      <div class="grid_contents_small2">
+          {{article_type}}
+      </div>
+
+  </div>
+
+  <div class="five">
+      <div class="grid_title">
+          <b>Study Design</b>
+      </div>
+
+      <div class="grid_contents_small2">
+          {{study_design}}
+      </div>
+  </div>
+
+  <div class="six">
+      <div class="grid_title">
+          <b>Result Summarizations</b>
+      </div>
+
+      <div class="grid_contents_large">
+          {{summarization}}
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>
