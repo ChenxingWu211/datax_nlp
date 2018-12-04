@@ -9,7 +9,8 @@ Run main.ipynb on jupyter notebook, a csv file containing the processed table wi
 cd inside datax_proj folder
 
 ## Step 3:
-run the following code in commandline to open webpage
+Run the following code in commandline to open webpage
+
 python manage.py runserver 0.0.0.0:8000
 
 ## Step 4:
